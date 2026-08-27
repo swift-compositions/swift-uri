@@ -8,7 +8,7 @@ A parsed URI value type for Swift.
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-foundations/swift-uri.git", branch: "main")
+    .package(url: "https://github.com/swift-compositions/swift-uri.git", branch: "main")
 ]
 ```
 
