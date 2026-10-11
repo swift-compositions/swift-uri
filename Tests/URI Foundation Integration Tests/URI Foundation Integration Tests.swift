@@ -16,7 +16,7 @@ extension URI.Foundation.Test.Integration {
     @Test
     func `URL bridge round-trips a canonical HTTPS URI`() throws {
         let uri = try URI("https://example.com/path?query=value#fragment")
-        let url = try uri.foundationURLRoundTripping()
+        let url = try URL(roundTripping: uri)
         #expect(url.absoluteString == uri.value)
         #expect(try url.uri().value == uri.value)
     }
@@ -24,7 +24,7 @@ extension URI.Foundation.Test.Integration {
     @Test
     func `URLComponents bridge round-trips a canonical HTTPS URI`() throws {
         let uri = try URI("https://example.com/path?query=value#fragment")
-        let components = try uri.foundationURLComponentsRoundTripping()
+        let components = try URLComponents(roundTripping: uri)
         #expect(try components.uri().value == uri.value)
     }
 }
@@ -33,7 +33,7 @@ extension URI.Foundation.Test.Unit {
     @Test
     func `relative reference bridges to URL without a scheme`() throws {
         let uri = try URI("/path/to/resource?x=1")
-        let url = try uri.foundationURL()
+        let url = try URL(uri)
         #expect(url.scheme == nil)
     }
 
@@ -55,10 +55,10 @@ extension URI.Foundation.Test.`Edge Case` {
     @Test
     func `strict URL bridge reports any mismatch accepted by the non-strict bridge`() throws {
         let uri = try URI("https://example.com/a/../b")
-        let foundationValue = try uri.foundationURL().absoluteString
+        let foundationValue = try URL(uri).absoluteString
 
         do throws(URI.Foundation.Error) {
-            let strict = try uri.foundationURLRoundTripping()
+            let strict = try URL(roundTripping: uri)
             #expect(foundationValue == uri.value)
             #expect(strict.absoluteString == foundationValue)
         } catch {
