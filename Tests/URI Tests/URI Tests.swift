@@ -8,12 +8,6 @@ struct `URI Tests` {
     @Suite struct Integration {}
 }
 
-extension `URI Tests`.Unit {
-    @Test
-    func `URI module re-exports URI_Standard`() {
-    }
-}
-
 extension `URI Tests`.Integration {
 
     @Test
