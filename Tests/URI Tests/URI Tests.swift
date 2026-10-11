@@ -1,14 +1,13 @@
 import Testing
 import URI
 
-@Suite
-struct `URI Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+extension URI {
+    @Suite struct Test {
+        @Suite struct Integration {}
+    }
 }
 
-extension `URI Tests`.Integration {
+extension URI.Test.Integration {
 
     @Test
     func `canonical(host:) reaches the L2 law through the re-export`() throws(URI.Canonicalization

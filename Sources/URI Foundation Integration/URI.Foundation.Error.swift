@@ -2,7 +2,7 @@ public import URI
 
 extension URI.Foundation {
 
-    public enum Error: Swift.Error, Sendable, Hashable {
+    public enum Error: Swift::Error, Sendable, Hashable {
 
         case notRepresentableInFoundation(value: String)
 
