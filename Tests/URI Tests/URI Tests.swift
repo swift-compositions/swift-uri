@@ -1,13 +1,15 @@
 import Testing
 import URI
 
-extension URI {
+enum `URI Tests` {}
+
+extension `URI Tests` {
     @Suite struct Test {
         @Suite struct Integration {}
     }
 }
 
-extension URI.Test.Integration {
+extension `URI Tests`.Test.Integration {
 
     @Test
     func `canonical(authority:) reaches the L2 law through the re-export`() throws(URI.Canonicalization

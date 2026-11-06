@@ -4,7 +4,9 @@ import URI
 
 @testable import URI_Foundation_Integration
 
-extension URI.Foundation {
+enum `URI.Foundation Tests` {}
+
+extension `URI.Foundation Tests` {
     @Suite struct Test {
         @Suite struct Unit {}
         @Suite struct `Edge Case` {}
@@ -12,7 +14,7 @@ extension URI.Foundation {
     }
 }
 
-extension URI.Foundation.Test.Integration {
+extension `URI.Foundation Tests`.Test.Integration {
     @Test
     func `URL bridge round-trips a canonical HTTPS URI`() throws {
         let uri = try URI("https://example.com/path?query=value#fragment")
@@ -29,7 +31,7 @@ extension URI.Foundation.Test.Integration {
     }
 }
 
-extension URI.Foundation.Test.Unit {
+extension `URI.Foundation Tests`.Test.Unit {
     @Test
     func `relative reference bridges to URL without a scheme`() throws {
         let uri = try URI("/path/to/resource?x=1")
@@ -50,7 +52,7 @@ extension URI.Foundation.Test.Unit {
     }
 }
 
-extension URI.Foundation.Test.`Edge Case` {
+extension `URI.Foundation Tests`.Test.`Edge Case` {
 
     @Test
     func `strict URL bridge reports any mismatch accepted by the non-strict bridge`() throws {
