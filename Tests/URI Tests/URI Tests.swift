@@ -10,11 +10,11 @@ extension URI {
 extension URI.Test.Integration {
 
     @Test
-    func `canonical(host:) reaches the L2 law through the re-export`() throws(URI.Canonicalization
+    func `canonical(authority:) reaches the L2 law through the re-export`() throws(URI.Canonicalization
         .Error)
     {
         let uri = URI(unchecked: "https://example.com/path")
-        let result = try uri.canonical(host: "canonical.com")
+        let result = try uri.canonical(authority: URI.Canonicalization.authority("canonical.com"))
 
         #expect(result == "https://canonical.com/path")
     }
