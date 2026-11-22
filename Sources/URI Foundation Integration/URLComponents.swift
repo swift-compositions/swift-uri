@@ -22,7 +22,7 @@ extension URLComponents {
         guard let value = string else {
             throw .notRepresentableAsURI(foundationValue: "")
         }
-        do throws(RFC_3986.Error) {
+        do throws(IETF.RFC.`3986`.Error) {
             return try URI(value)
         } catch {
             throw .notRepresentableAsURI(foundationValue: value)
